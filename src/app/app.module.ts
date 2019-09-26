@@ -12,10 +12,11 @@ import { MessageService } from './message.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CounterComponent } from './counter/counter.component';
+import { CounterTestComponent } from './counter-test/counter-test.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule ],
-  declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, CounterComponent ],
+  declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, CounterComponent, CounterTestComponent ],
   bootstrap:    [ AppComponent ],
   providers: [HeroService, MessageService]
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Game } from '../game';
 
 @Component({
   selector: 'app-counter',
@@ -25,6 +26,8 @@ export class CounterComponent implements OnInit {
   player2SetsWon = 0;
   currentSet = 1;
   winnerText = '';
+
+  
 
   incrementPoint1 () {
     if (this.player1CurrentSetScore == 6 && this.player2CurrentSetScore == 6) {
