@@ -7,7 +7,7 @@ import { CounterComponent } from './counter/counter.component';
 import { CounterTestComponent } from './counter-test/counter-test.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/counter-test', pathMatch: 'full' },
+  { path: '', redirectTo: '/counter', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
