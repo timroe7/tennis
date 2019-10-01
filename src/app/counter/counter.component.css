@@ -59,7 +59,6 @@ h4 {
 
 .column {
   float: left;
-  //width: 50%;
 }
 
 .row:after {
@@ -78,3 +77,42 @@ h4 {
 
 
 }
+
+
+
+table {
+    border-radius: 25px;
+    border-collapse: collapse;
+}
+
+th, td {
+  text-align: center;
+  padding: 15px;
+}
+
+
+th {
+    background-color: #46b959;
+}
+
+td {
+  background-color: #b8e4bf;
+}
+
+#first-row-left
+{
+  border-radius: 6px 0 0 0;
+}
+
+#first-row-right {
+  border-radius: 0 6px 0 0;
+}
+
+#last-row-left {
+  border-radius: 0 0 0 6px
+}
+
+#last-row-right {
+  border-radius: 0 0 6px 0;
+}
+

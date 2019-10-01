@@ -1,10 +1,31 @@
-<h4>Player 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Player 2</h4> 
 
-<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{player1Set1Display}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Set 1  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{player2Set1Display}}</h4>
-<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{player1Set2Display}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Set 2  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{player2Set2Display}}</h4>
-<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{player1Set3Display}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Set 3  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{player2Set3Display}}</h4>
-<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{player1TiebreakScore}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Tiebreak  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{player2TiebreakScore}}</h5>
-
+<table>
+  <tr>
+      <th id="first-row-left">Player 1</th>
+      <th>Set</th>
+      <th id="first-row-right">Player 2</th>
+  </tr>
+  <tr>
+      <td>{{player1Set1Display}}</td>
+      <td>1</td>
+      <td>{{player2Set1Display}}</td>
+  </tr>
+  <tr>
+      <td>{{player1Set2Display}}</td>
+      <td>2</td>
+      <td>{{player2Set2Display}}</td>
+  </tr>
+  <tr>
+      <td>{{player1Set3Display}}</td>
+      <td>3</td>
+      <td>{{player2Set3Display}}</td>
+  </tr>
+  <tr>
+      <td id="last-row-left">{{player1TiebreakScore}}</td>
+      <td>Tiebreak</td>
+      <td id="last-row-right">{{player2TiebreakScore}}</td>
+  </tr>
+</table>
  
  <div class="row">
   <div  class = "container column" (click)="incrementPoint1()">
