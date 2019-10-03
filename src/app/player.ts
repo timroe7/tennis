@@ -1,6 +1,8 @@
 export class Player {
-  id: number;
+  school: string;
   name: string;
   score: string;
   isWinner: boolean;
+  wonMatches: number;
+  lostMatches: number;
 }
