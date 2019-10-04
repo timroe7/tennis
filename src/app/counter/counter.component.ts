@@ -36,9 +36,11 @@ export class CounterComponent implements OnInit {
   constructor(private gameService: GameService) { }
 
   ngOnInit() {
+    this.game = this.gameService.getCurrentGame();
   }
 
   incrementPoint1 () {
-    this.gameService.incrementTeam1Points();
+    debugger;
+    this.gameService.incrementTeam1Points(this.game);
   }
 }

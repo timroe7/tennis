@@ -5,7 +5,18 @@ import {Player} from './player';
 import {Set} from './set';
 @Injectable()
 export class GameService {
-  games: Game[];
+  games: Game[] = [
+    {AllPoints: [],
+  Team1Points: 0,
+  Team1PointsDisplay: "0",
+  Team2Points: 0,
+  Team2PointsDisplay: "0",
+  WithAd: true,
+  isFinished: false,
+  gameWonBy: true,
+  isTrue: true
+   }
+  ];
   //match: Match
   constructor() { }
 
@@ -14,28 +25,28 @@ export class GameService {
       if (!g.isFinished) return g;
     }
   }
-  incrementTeam1Points() {
-    if (this.gameFinished()) {
-      this.game.Team1Points++;
-      this.game.AllPoints.push(true);
+  incrementTeam1Points(game: Game) {
+    if (!this.IsGameFinished(game)) {
+      game.IncreaseTeam1Point();
+      game.AllPoints.push(true);
     } 
   }
-  incrementTeam2Points() {
-    if (this.gameFinished()) {
-      this.Team1Points++;
-      this.AllPoints.push(false);
-    }
+  incrementTeam2Points(game: Game) {
+    if (!this.IsGameFinished(game)) {
+      game.Team2Points++;
+      game.AllPoints.push(false);
+    } 
   }
 
-  gameFinished(): boolean {
-    if (Math.abs(this.Team1Points-this.Team2Points)>=2 
-    &&(this.Team1Points >=4 || this.Team2Points>=4)) {
-      if (this.Team1Points > this.Team2Points) {
-        this.gameWonBy = true;
+  IsGameFinished(game: Game): boolean {
+    if (Math.abs(game.Team1Points-game.Team2Points)>=2 
+    &&(game.Team1Points >=4 || game.Team2Points>=4)) {
+      if (game.Team1Points > game.Team2Points) {
+        game.gameWonBy = true;
         return true;
       }
       else {
-        this.gameWonBy = false;
+        game.gameWonBy = false;
         return true;
       }
     }
