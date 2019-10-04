@@ -5,7 +5,7 @@ export class Game {
   Team2Points: number;
   Team2PointsDisplay: string;
   WithAd: boolean;
-  //isFinished: boolean;
+  isFinished: boolean;
   gameWonBy: boolean;
 
   

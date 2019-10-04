@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Game} from '../game.ts';
-import {Match} from '../match.ts';
-import {Set} from '../set.ts';
+import {Game} from '../game';
+import {Match} from '../match';
+import {Set} from '../set';
+import {GameService} from '../game.service'
 
 @Component({
   selector: 'app-counter',
@@ -30,13 +31,14 @@ export class CounterComponent implements OnInit {
   currentSet = 1;
   winnerText = '';
 
-  incrementPoint1 () {
-    this.game.incrementTeam1Points();
-  }
+  
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
   ngOnInit() {
   }
 
+  incrementPoint1 () {
+    this.gameService.incrementTeam1Points();
+  }
 }

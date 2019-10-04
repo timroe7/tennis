@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
-import {}
+import {Game} from './game';
+import {Match} from './match';
+import {Player} from './player';
+import {Set} from './set';
 @Injectable()
 export class GameService {
-
+  games: Game[];
+  //match: Match
   constructor() { }
 
+  getCurrentGame(): Game {
+    for (let g of this.games) {
+      if (!g.isFinished) return g;
+    }
+  }
   incrementTeam1Points() {
     if (this.gameFinished()) {
-      this.Team1Points++;
-      this.AllPoints.push(true);
+      this.game.Team1Points++;
+      this.game.AllPoints.push(true);
     } 
   }
   incrementTeam2Points() {
