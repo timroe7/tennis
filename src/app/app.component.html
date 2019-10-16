@@ -1,16 +1,15 @@
-<h1>{{title}}</h1>
 <head> 
 	<base href="/">
 </head>
 <body>
 	<header>
 		<nav>
+			<h1>{{title}}</h1>
 			<ul>
 				<li><a routerLink="/home-page">Home</a></li>
-				<li><a routerLink="/counter">Counter</a></li>
+				<div><li><a routerLink="/counter">Counter</a></li></div>
 			</ul>
 		</nav>
 	</header>
+	<router-outlet></router-outlet>
 </body>
-
-<router-outlet></router-outlet>
