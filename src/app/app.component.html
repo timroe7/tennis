@@ -1,4 +1,16 @@
 <h1>{{title}}</h1>
-<a routerLink="/home-page">Home</a>
-<a routerLink="/counter">Counter</a>
+<head> 
+	<base href="/">
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a routerLink="/home-page">Home</a></li>
+				<li><a routerLink="/counter">Counter</a></li>
+			</ul>
+		</nav>
+	</header>
+</body>
+
 <router-outlet></router-outlet>
