@@ -1,4 +1,15 @@
-<h1>{{title}}</h1>
-<a routerLink="/home-page">Home</a>
-<a routerLink="/counter">Counter</a>
-<router-outlet></router-outlet>
+<head> 
+	<base href="/">
+</head>
+<body>
+	<header>
+		<img src="https://i.postimg.cc/9M8kKgpv/logo-transparent.png">
+		<nav>
+			<ul>
+				<li><a routerLink="/home-page">Home</a></li>
+				<li><a routerLink="/counter">Counter</a></li>
+			</ul>
+		</nav>
+	</header>
+	<router-outlet></router-outlet>
+</body>

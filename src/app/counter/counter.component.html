@@ -1,47 +1,57 @@
+<body>
+	<table>
+	  <tr>
+		  <th id="first-row-left">Player 1</th>
+		  <th>Set</th>
+		  <th id="first-row-right">Player 2</th>
+	  </tr>
+	  <tr>
+		  <td>{{player1Set1Display}}</td>
+		  <td>1</td>
+		  <td>{{player2Set1Display}}</td>
+	  </tr>
+	  <tr>
+		  <td>{{player1Set2Display}}</td>
+		  <td>2</td>
+		  <td>{{player2Set2Display}}</td>
+	  </tr>
+	  <tr>
+		  <td>{{player1Set3Display}}</td>
+		  <td>3</td>
+		  <td>{{player2Set3Display}}</td>
+	  </tr>
+	  <tr>
+		  <td id="last-row-left">{{player1TiebreakScore}}</td>
+		  <td>Tiebreak</td>
+		  <td id="last-row-right">{{player2TiebreakScore}}</td>
+	  </tr>
+	  <tr id="score-keeper">
+		  <td>
+				<div  class = "container column" (click)="incrementPoint1()">
+						<img class="scorer" src="https://c7.uihere.com/files/65/414/530/tennis-balls-racket-clip-art-simple-tennis-ball-png-thumb.jpg">
+						<h4 class="score" >{{player1GameScoreDisplay}}</h4>
+				</div>
+		  </td>
+		  <td>
+				<tr>Scoring Buttons</tr>
+		  </td>
+		  <td>
+				<div class = "container column" (click)="incrementPoint2()">
+						<img img class="scorer" src="https://c7.uihere.com/files/65/414/530/tennis-balls-racket-clip-art-simple-tennis-ball-png-thumb.jpg" >
+						<h4  class="score" >{{[player2GameScoreDisplay]}} </h4>
+				</div>
+		  </td>
+	  </tr>
+	  <tr id="score-keeper">
+				<td></td>
+				<td>
+					<div (click)="resetButton()">    
+						<h4>Reset</h4>
+					</div>
+				</td>
+				<td></td>
+	  </tr>
+	</table>
 
-<table>
-  <tr>
-      <th id="first-row-left">Player 1</th>
-      <th>Set</th>
-      <th id="first-row-right">Player 2</th>
-  </tr>
-  <tr>
-      <td>{{player1Set1Display}}</td>
-      <td>1</td>
-      <td>{{player2Set1Display}}</td>
-  </tr>
-  <tr>
-      <td>{{player1Set2Display}}</td>
-      <td>2</td>
-      <td>{{player2Set2Display}}</td>
-  </tr>
-  <tr>
-      <td>{{player1Set3Display}}</td>
-      <td>3</td>
-      <td>{{player2Set3Display}}</td>
-  </tr>
-  <tr>
-      <td id="last-row-left">{{player1TiebreakScore}}</td>
-      <td>Tiebreak</td>
-      <td id="last-row-right">{{player2TiebreakScore}}</td>
-  </tr>
-</table>
- 
- <div class="row">
-  <div  class = "container column" (click)="incrementPoint1()">
-    &nbsp;<img class="scorer" src="https://c7.uihere.com/files/65/414/530/tennis-balls-racket-clip-art-simple-tennis-ball-png-thumb.jpg">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h4 class="score" >{{player1GameScoreDisplay}}</h4>
-  </div>
-
-  <div class = "container column" (click)="incrementPoint2()">
-  <img img class="scorer"
-  src="https://c7.uihere.com/files/65/414/530/tennis-balls-racket-clip-art-simple-tennis-ball-png-thumb.jpg" >
-    <h4  class="score" >{{[player2GameScoreDisplay]}} </h4>
-  </div>
- </div>
-
- <div (click)="resetButton()">    
-    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reset</h4>
-  </div>
-
- <h1>{{winnerText}}</h1>
+	 <h1>{{winnerText}}</h1>
+</body>

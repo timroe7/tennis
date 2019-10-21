@@ -27,16 +27,6 @@ modules/.vscode
 # Don't check in secret files
 *secret.js
 *.editorconfig
-*browserslist
-*karma.conf.js
-*package-lock.json
-*tsconfig.app.json
-*tsconfig.json
-*tsconfig.spec.json
-*tslint.json
-*src/assets/
-*src/environments
-*src/test.ts
 
 # Ignore npm/yarn debug log
 npm-debug.log
