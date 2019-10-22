@@ -6,37 +6,37 @@
       <th id="first-row-right">Player 2</th>
   </tr>
   <tr>
-      <td>{{player1Set1Display}}</td>
+      <td>{{this.match.AllSets[0].Team1Games}}</td>
       <td>1</td>
-      <td>{{player2Set1Display}}</td>
+      <td>{{this.match.AllSets[0].Team2Games}}</td>
   </tr>
   <tr>
-      <td>{{player1Set2Display}}</td>
+      <td>{{this.match.AllSets[1].Team1Games}}</td>
       <td>2</td>
-      <td>{{player2Set2Display}}</td>
+      <td>{{this.match.AllSets[1].Team2Games}}</td>
   </tr>
   <tr>
-      <td>{{player1Set3Display}}</td>
+      <td>{{this.match.AllSets[2].Team1Games}}</td>
       <td>3</td>
-      <td>{{player2Set3Display}}</td>
+      <td>{{this.match.AllSets[2].Team2Games}}</td>
   </tr>
   <tr>
-      <td id="last-row-left">{{player1TiebreakScore}}</td>
+      <td id="last-row-left">{{this.match.CurrentSet.CurrentGame.Team1TiebreakScore}}</td>
       <td>Tiebreak</td>
-      <td id="last-row-right">{{player2TiebreakScore}}</td>
+      <td id="last-row-right">{{this.match.CurrentSet.CurrentGame.Team2TiebreakScore}}</td>
   </tr>
 </table>
  
  <div class="row">
   <div  class = "container column" (click)="incrementPoint1()">
     &nbsp;<img class="scorer" src="https://c7.uihere.com/files/65/414/530/tennis-balls-racket-clip-art-simple-tennis-ball-png-thumb.jpg">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h4 class="score" >{{this.game.Team1PointsDisplay}}</h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h4 class="score" >{{this.match.CurrentSet.CurrentGame.Team1PointsDisplay}}</h4>
   </div>
 
   <div class = "container column" (click)="incrementPoint2()">
   <img img class="scorer"
   src="https://c7.uihere.com/files/65/414/530/tennis-balls-racket-clip-art-simple-tennis-ball-png-thumb.jpg" >
-    <h4  class="score" >{{[player2GameScoreDisplay]}} </h4>
+    <h4  class="score" >{{this.match.CurrentSet.CurrentGame.Team2PointsDisplay}} </h4>
   </div>
  </div>
 

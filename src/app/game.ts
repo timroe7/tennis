@@ -1,65 +1,64 @@
 export class Game {
-  AllPoints: Array<boolean>;
-  Team1Points: number;
-  Team1PointsDisplay: string;
-  Team2Points: number;
-  Team2PointsDisplay: string;
-  WithAd: boolean;
-  isFinished: boolean;
-  gameWonBy: boolean;
+  AllPoints = new Array<boolean>();
+  Team1Points = 0;
+  Team1PointsDisplay = '0';
+  Team1TiebreakScore = 0;
+  Team2Points = 0;
+  Team2PointsDisplay = '0';
+  Team2TiebreakScore = 0;
+  WithAd = true;
+  isFinished = false;
+  gameWonBy = false;
+  IsTiebreak = false;
 
-  public IncreaseTeam1Point()  {
+  public Team1Point()  {
     if (!this.isFinished) {
-      this.Team1Points++;
+    this.Team1PointsDisplay = this.UpdatePointsDisplay(this.Team1PointsDisplay, this.Team2PointsDisplay);
       this.AllPoints.push(true);
     }
-    this.UpdatePointsDisplay1();
+    if (this.isFinished) {
+      this.gameWonBy = true;
+    }
   }
   public Team2Point() {
     if (!this.isFinished) {
-      this.Team2Points++;
+    this.Team2PointsDisplay = this.UpdatePointsDisplay(this.Team2PointsDisplay, this.Team1PointsDisplay);
       this.AllPoints.push(false);
     }
-    this.UpdatePointsDisplay2();
-  }
-  public UpdatePointsDisplay1() {
-    if (this.Team1Points > 3 && (this.Team2Points >= 3 && this.Team2Points < this.Team1Points)) {
-      this.Team1PointsDisplay = 'Adv';
-    }
-    else if (this.Team1Points >= 3 && this.Team2Points == this.Team1Points) {
-      this.Team1PointsDisplay = '40';
-    }
-    else if (this.Team1Points >= 3 && this.Team1Points == (this.Team2Points-1)) {
-      this.Team1PointsDisplay = '40';
-    }
-    else if (this.Team1Points == 1) {
-      this.Team1PointsDisplay = '15';
-    }
-    else if (this.Team1Points == 2) {
-      this.Team1PointsDisplay = '30';
-    }
-    else if (this.Team1Points == 3) {
-      this.Team1PointsDisplay = '40';
+    if (this.isFinished) {
+      this.gameWonBy = false;
     }
   }
-  public UpdatePointsDisplay2() {
-    if (this.Team2Points > 3 && (this.Team1Points >= 3 && this.Team1Points < this.Team2Points)) {
-      this.Team2PointsDisplay = 'Adv';
+
+  public UpdatePointsDisplay(teamPointWon: string, teamPointLost: string): string {
+    if (teamPointWon == '0') {
+      return '15';
     }
-    else if (this.Team2Points >= 3 && this.Team1Points == this.Team2Points) {
+    else if (teamPointWon == '15') {
+      return '30';
+    }
+    else if (teamPointWon == '30') {
+      return '40';
+    }
+    else if (teamPointWon == '40' && (teamPointLost == '30' || teamPointLost == '15' || teamPointLost == '0')) {
+      this.isFinished = true;
+      this.Team1PointsDisplay = '0';
+      this.Team2PointsDisplay = '0';
+      return '0';
+    }
+    else if (teamPointWon == '40' && teamPointLost == '40') {
+      return 'Adv';
+    }
+    else if (teamPointWon == '40' && teamPointLost == 'Adv') {
+      this.Team1PointsDisplay = '40';
       this.Team2PointsDisplay = '40';
+      return '40';
     }
-    else if (this.Team2Points >= 3 && this.Team2Points == (this.Team1Points-1)) {
-      this.Team2PointsDisplay = '40';
-    }
-    else if (this.Team2Points == 1) {
-      this.Team2PointsDisplay = '15';
-    }
-    else if (this.Team2Points == 2) {
-      this.Team2PointsDisplay = '30';
-    }
-    else if (this.Team2Points == 3) {
-      this.Team2PointsDisplay = '40';
+    else if (teamPointWon == 'Adv') {
+      this.isFinished = true;
+      this.Team1PointsDisplay = '0';
+      this.Team2PointsDisplay = '0';
+      return '0';
     }
   }
 }
