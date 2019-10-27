@@ -10,6 +10,7 @@ export class Game {
   isFinished = false;
   gameWonBy = false;
   IsTiebreak = false;
+  WhoIsServing = false;
 
   Team1Point() {
     if (!this.isFinished) {

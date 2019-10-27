@@ -11,18 +11,20 @@ import {GameService} from '../game.service'
 })
 export class CounterComponent implements OnInit {
   match = new Match();
-
+  currentTeam: boolean;
   constructor() { }
 
   ngOnInit() {
   }
 
   incrementPoint1 () {
-    debugger;
+    //debugger;
+    this.currentTeam = true;
     this.match.Team1Point();
-    this.match.AllSets[0].Team1Point;
+    //this.match.AllSets[0].Team1Point;
   }
   incrementPoint2() {
+    this.currentTeam = false;
     this.match.Team2Point();
   }
   resetButton() {

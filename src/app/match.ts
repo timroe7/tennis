@@ -15,14 +15,31 @@ export class Match {
     if (!this.IsMatchFinished) {
       this.CurrentSet.Team1Point();
       this.AllSets[this.WhichSet] = this.CurrentSet;
+      //if (this.AllSets[this.WhichSet].Current)
       if (this.CurrentSet.IsSetFinished) {
         this.WhichSet++;
         if (this.CurrentSet.SetWonBy) {
           this.Team1Sets++;
         } else {
           this.Team2Sets++;
-        }
+        }        
+        debugger;
         this.CurrentSet = new Set();
+        if (!this.AllSets[this.WhichSet-1].WhichPlayerServing && !this.AllSets[this.WhichSet-1].CurrentGame.IsTiebreak) {
+          this.CurrentSet.WhichPlayerServing = false;
+        }
+        else if (this.AllSets[this.WhichSet-1].WhichPlayerServing && !this.AllSets[this.WhichSet-1].CurrentGame.IsTiebreak) {
+          this.CurrentSet.WhichPlayerServing = true;
+        }
+        else if (this.AllSets[this.WhichSet-1].CurrentGame.IsTiebreak) {
+          if (this.AllSets[this.WhichSet-1].AllGames[0].WhoIsServing) {
+            this.CurrentSet.WhichPlayerServing = false;
+          }
+          else {
+            this.CurrentSet.WhichPlayerServing = true;
+          }
+        }
+        
       }
     }
     this.CheckForMatchFinished();
@@ -39,6 +56,20 @@ export class Match {
           this.Team2Sets++;
         }
         this.CurrentSet = new Set();
+        if (this.AllSets[this.WhichSet-1].WhichPlayerServing && !this.AllSets[this.WhichSet-1].CurrentGame.IsTiebreak) {
+          this.CurrentSet.WhichPlayerServing = false;
+        }
+        else if (!this.AllSets[this.WhichSet-1].WhichPlayerServing && !this.AllSets[this.WhichSet-1].CurrentGame.IsTiebreak) {
+          this.CurrentSet.WhichPlayerServing = true;
+        }
+        else if (this.AllSets[this.WhichSet-1].CurrentGame.IsTiebreak) {
+          if (this.AllSets[this.WhichSet-1].AllGames[0].WhoIsServing) {
+            this.CurrentSet.WhichPlayerServing = false;
+          }
+          else {
+            this.CurrentSet.WhichPlayerServing = true;
+          }
+        }
       }
     }
     this.CheckForMatchFinished();

@@ -2,6 +2,7 @@ import { Game } from "./game";
 
 export class Set {
   WhichSet = 0;
+  WhichPlayerServing = true;
   AllGames = new Array<Game>();
   CurrentGame = new Game();
   Team1Games = 0;
@@ -12,9 +13,16 @@ export class Set {
   SetWonBy = false;
   IsInTieBreak = false;
 
+  changePlayerServing() {
+    if (this.WhichPlayerServing) this.WhichPlayerServing = false;
+    else this.WhichPlayerServing = true;
+  }
   Team1Point() {
     if (this.IsInTieBreak) {
       this.CurrentGame.TiebreakTeam1Point();
+      if ((this.CurrentGame.Team1TiebreakScore + this.CurrentGame.Team2TiebreakScore) % 2 != 0) {
+        this.changePlayerServing();
+      }
     } else {
       this.CurrentGame.Team1Point();
     }
@@ -22,10 +30,16 @@ export class Set {
         this.AllGames.push(this.CurrentGame);
         if (this.CurrentGame.gameWonBy == true) {
           this.Team1Games++;
+          this.changePlayerServing();
         } else {
           this.Team2Games++;
+          this.changePlayerServing();
         }
+        if (!this.CurrentGame.IsInTieBreak) {
         this.CurrentGame = new Game();
+        this.CurrentGame.WhoIsServing = this.WhichPlayerServing;
+        }
+
       }
       this.CheckForSetFinished();
       this.AreWeInTiebreak();
@@ -33,6 +47,9 @@ export class Set {
   Team2Point() {
     if (this.IsInTieBreak) {
       this.CurrentGame.TiebreakTeam2Point();
+      if ((this.CurrentGame.Team1TiebreakScore + this.CurrentGame.Team2TiebreakScore) % 2 != 0) {
+        this.changePlayerServing();
+      }
     } else {
       this.CurrentGame.Team2Point();
     }
@@ -40,10 +57,15 @@ export class Set {
         this.AllGames.push(this.CurrentGame);
         if (this.CurrentGame.gameWonBy == true) {
           this.Team1Games++;
+           this.changePlayerServing();
         } else {
           this.Team2Games++;
+           this.changePlayerServing();
         }
+        if (!this.CurrentGame.IsInTieBreak) {
         this.CurrentGame = new Game();
+        this.CurrentGame.WhoIsServing = this.WhichPlayerServing;
+        }
       }
       this.CheckForSetFinished();
       this.AreWeInTiebreak();

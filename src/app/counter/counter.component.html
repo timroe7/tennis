@@ -1,23 +1,43 @@
 
 <table>
   <tr>
-      <th id="first-row-left">Player 1</th>
+      <th id="first-row-left">
+        <div *ngIf = "this.match.CurrentSet.WhichPlayerServing == true;else elseBlock4">
+          <div style ='background: orange'>Player 1</div>
+        </div>
+        <ng-template #elseBlock4>Player 1</ng-template>
+      </th>
       <th>Set</th>
-      <th id="first-row-right">Player 2</th>
+      <th id="first-row-right">
+        <div *ngIf = "this.match.CurrentSet.WhichPlayerServing == false;else elseBlock5">
+          <div style ='background: orange'>Player 2</div>
+        </div>
+        <ng-template #elseBlock5>Player 2</ng-template>
+      </th>
   </tr>
   <tr>
       <td>{{this.match.AllSets[0].Team1Games}}</td>
-      <td>1</td>
+      <td><div *ngIf = 'this.match.WhichSet == 0; else elseBlock1'>
+        <div style='background: orange'>1</div>
+        </div>
+      <ng-template #elseBlock1>1</ng-template>
+      </td>
       <td>{{this.match.AllSets[0].Team2Games}}</td>
   </tr>
   <tr>
       <td>{{this.match.AllSets[1].Team1Games}}</td>
-      <td>2</td>
+      <td><div *ngIf = 'this.match.WhichSet == 1; else elseBlock2'>
+        <div style='background: orange'>2</div>
+        </div>
+      <ng-template #elseBlock2>2</ng-template>
+      </td>
       <td>{{this.match.AllSets[1].Team2Games}}</td>
   </tr>
   <tr>
       <td>{{this.match.AllSets[2].Team1Games}}</td>
-      <td>3</td>
+      <td><div *ngIf = 'this.match.WhichSet == 2; else elseBlock3'><div style='background: orange'>3</div></div>
+     <ng-template #elseBlock3>3</ng-template>
+      </td>
       <td>{{this.match.AllSets[2].Team2Games}}</td>
   </tr>
   <tr>
@@ -45,3 +65,8 @@
   </div>
 
  <h1>{{winnerText}}</h1>
+ <button mat-raised-button
+        matTooltip="Info about the action"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+  Action
+</button>
